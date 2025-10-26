@@ -1,6 +1,7 @@
 # NOTE: keeps for compatibility
 from __future__ import annotations
 
+import datetime
 from typing import TYPE_CHECKING, Any
 
 from aws_lambda_powertools.metrics.provider.cloudwatch_emf.cloudwatch import AmazonCloudWatchEMFProvider
@@ -133,7 +134,7 @@ class Metrics:
     def add_metadata(self, key: str, value: Any) -> None:
         self.provider.add_metadata(key=key, value=value)
 
-    def set_timestamp(self, timestamp: int):
+    def set_timestamp(self, timestamp: int | datetime.datetime):
         """
         Set the timestamp for the metric.
 
